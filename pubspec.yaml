@@ -1,0 +1,30 @@
+name: app_prompter
+description: Prompt users to a custom action on your app if custom conditions like install time and number of launches are met
+version: 0.0.1
+author: JacksiroKe
+homepage: https://github.com/jacksiroke/app_prompter
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  shared_preferences: '>=0.5.7 <2.0.0'
+  pedantic: '>=1.8.0 <2.0.0'
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.jacksiroke.app_prompter
+        pluginClass: AppPrompterPlugin
+      ios:
+        pluginClass: AppPrompterPlugin
+
+  
