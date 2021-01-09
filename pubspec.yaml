@@ -1,6 +1,6 @@
 name: app_prompter
 description: Prompt users to a custom action on your app if custom conditions like install time and number of launches are met
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/jacksiroke/app_prompter
 
 environment:

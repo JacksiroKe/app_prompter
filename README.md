@@ -1,12 +1,8 @@
-<div align="center">
-    <img src="https://github.com/Jacksiroke/app_prompter/raw/master/images/logo.svg" height="200">
-</div>
-
-# App Prompter!
+# App Prompter
 
 This plugin prompts users to a custom action on your app if custom conditions like install time and number of launches are met.
 
-_App Prompter_ is really inspired by [Prompter my App](https://github.com/Skyost/PrompterMyApp)
+_App Prompter_ is really inspired by [Rate my App](https://github.com/Skyost/RateMyApp)
 
 ## How to use
 
@@ -72,15 +68,15 @@ appPrompter.init().then((_) {
   if (appPrompter.shouldOpenDialog) {
     appPrompter.showPromptDialog(
       context,
-      title: 'Prompter this app', // The dialog title.
-      message: 'If you like this app, please take a little bit of your time to review it !\nIt really helps us and it shouldn\'t take you more than one minute.', // The dialog message.
-      rateButton: 'RATE', // The dialog "rate" button text.
+      title: 'Just a Minute', // The dialog title.
+      message: 'Since this app is ad free would you mind donate to support its development', // The dialog message.
+      actionButton: 'DONATE', // The dialog "action" button text.
       noButton: 'NO THANKS', // The dialog "no" button text.
       laterButton: 'MAYBE LATER', // The dialog "later" button text.
       listener: (button) { // The button click listener (useful if you want to cancel the click event).
         switch(button) {
-          case AppPrompterDialogButton.rate:
-            print('Clicked on "Prompter".');
+          case AppPrompterDialogButton.action:
+            print('Clicked on "Donate".');
             break;
           case AppPrompterDialogButton.later:
             print('Clicked on "Later".');
@@ -92,11 +88,8 @@ appPrompter.init().then((_) {
         
         return true; // Return false if you want to cancel the click event.
       },
-      ignoreNativeDialog: Platform.isAndroid, // Set to false if you want to show the Apple's native app rating dialog on iOS or Google's native app rating dialog (depends on the current Platform).
       dialogStyle: DialogStyle(), // Custom dialog styles.
-      onDismissed: () => appPrompter.callEvent(AppPrompterEventType.laterButtonPressed), // Called when the user dismissed the dialog (either by taping outside or by pressing the "back" button).
-      // contentBuilder: (context, defaultContent) => content, // This one allows you to change the default dialog content.
-      // actionsBuilder: (context) => [], // This one allows you to use your own buttons. 
+      onDismissed: () => appPrompter.callEvent(AppPrompterEventType.laterButtonPressed),
     );
     
   }
@@ -114,8 +107,8 @@ Place this in your main widget state :
 ```dart
 AppPrompter appPrompter = AppPrompter(
   preferencesPrefix: 'appPrompter_',
-  minDays: 0, // Show rate popup on first day of install.
-  minLaunches: 5, // Show rate popup after 5 launches of app after minDays is passed.
+  minDays: 0, // Show simple popup on first day of install.
+  minLaunches: 5, // Show simple popup after 5 launches of app after minDays is passed.
 );
 
 @override

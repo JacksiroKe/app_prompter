@@ -46,12 +46,12 @@ class MyAppState extends State<MyApp> {
 
               print('Are all conditions met ? ' + (appPrompter.shouldOpenDialog ? 'Yes' : 'No'));
 
-              //if (appPrompter.shouldOpenDialog) {
+              if (appPrompter.shouldOpenDialog) {
                 appPrompter.showPromptDialog(
                   context,
                   title: 'Just a Minute', // The dialog title.
                   message: 'Since this app is ad free would you mind donate to support its development', // The dialog message.
-                  actionButton: 'DONATE', // The dialog "rate" button text.
+                  actionButton: 'DONATE', // The dialog "action" button text.
                   noButton: 'NO THANKS', // The dialog "no" button text.
                   laterButton: 'MAYBE LATER', // The dialog "later" button text.
                   listener: (button) { // The button click listener (useful if you want to cancel the click event).
@@ -72,7 +72,7 @@ class MyAppState extends State<MyApp> {
                   dialogStyle: DialogStyle(), // Custom dialog styles.
                   onDismissed: () => appPrompter.callEvent(AppPrompterEventType.laterButtonPressed),
                 );
-              //}
+              }
             },
           ),
         ),
